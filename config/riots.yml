@@ -1,0 +1,12 @@
+production:
+  mqtt:
+    name: mqtt.1.server
+    host: 192.168.56.101
+    port: 1883
+  topics:
+    - /home/livingroom/temp
+    - /home/bedroom/temp
+    - /home/kitchen/temp
+    - /home/maindoor/cctv
+    - /home/balcony/cctv
+    - /home/garage/cctv  
