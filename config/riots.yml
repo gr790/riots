@@ -1,8 +1,11 @@
 production:
+  # This would be your external Node FQDN where MQTT broker will run
+  # As of now MQTT broker will run on same node as MQTT client which work as subscriber
   mqtt:
     name: mqtt.1.server
     host: 192.168.56.101
     port: 1883
+  # List of topics which current node client will subscribe and process
   topics:
     - /home/livingroom/temp
     - /home/bedroom/temp
