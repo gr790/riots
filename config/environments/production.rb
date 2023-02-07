@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require 'riots/processor/base'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -75,6 +76,9 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
+  # Riots Logger
+  config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
@@ -90,4 +94,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   # config.active_record.dump_schema_after_migration = false
+  config.after_initialize do
+    puts "After initializing rails..."
+    Riots::Processor::Base.new.process
+  end
 end
