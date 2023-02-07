@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+# load path to be relative to the calling script
+$: << File.join(File.expand_path(File.dirname($0)), '..', 'lib')
+
+# our Gemfile to be relative to the calling script
+ENV['BUNDLE_GEMFILE'] = File.join(File.expand_path(File.dirname($0)), '..', 'Gemfile')
+
+require 'bundler'
+Bundler.setup
+
+
+require 'mqtt'
+require 'riots/publish/home_temp'
+
+Riots::HomeTemp::Publish::start
