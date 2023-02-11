@@ -51,6 +51,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'mqtt'
 gem 'google-protobuf'
 gem 'statsd'
+gem 'redis'
 gem 'byebug'
 
 
