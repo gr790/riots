@@ -9,7 +9,6 @@ class RiotsController < ActionController::Base
           puts "Controller was hit from riots-logstash"
           Riots::Processor::HomeTemp.new.work(request)
         ensure
-            # aligned with SOAP 1.2 spec
             render :json => {status: 200}
         end
     end
