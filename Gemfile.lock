@@ -76,6 +76,7 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.2.0)
+    connection_pool (2.3.0)
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
@@ -160,6 +161,10 @@ GEM
       rake (>= 0.13)
       thor (~> 1.0)
     rake (13.0.6)
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
+    redis-client (0.12.1)
+      connection_pool
     regexp_parser (2.6.2)
     reline (0.3.2)
       io-console (~> 0.5)
@@ -220,6 +225,7 @@ DEPENDENCIES
   mqtt
   puma (~> 5.0)
   rails (= 6.1.4)
+  redis
   selenium-webdriver
   statsd
   stimulus-rails

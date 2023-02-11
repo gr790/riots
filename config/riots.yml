@@ -13,3 +13,6 @@ production:
     - /home/maindoor/cctv
     - /home/balcony/cctv
     - /home/garage/cctv  
+  statsd:
+    host: 127.0.0.1
+    port: 8125

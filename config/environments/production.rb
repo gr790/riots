@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require 'riots/processor/base'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -57,6 +58,15 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+  config.cache_store = :redis_cache_store, {
+        url: "redis://localhost:6379/0",
+        connect_timeout:    30,  # Defaults to 20 seconds
+        read_timeout:       1, # Defaults to 1 second
+        write_timeout:      1, # Defaults to 1 second
+        reconnect_attempts: 1,   # Defaults to 0
+        pool_size: 16,
+        pool_timeout: 5
+  }
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
@@ -75,6 +85,9 @@ Rails.application.configure do
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
+  # Riots Logger
+  config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
@@ -90,4 +103,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   # config.active_record.dump_schema_after_migration = false
+  config.after_initialize do
+    puts "After initializing rails..."
+    Riots::Processor::Base.new.process
+  end
 end

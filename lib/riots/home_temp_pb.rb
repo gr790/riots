@@ -20,7 +20,6 @@ module Riots
     # This method will generate temparature and humidity using random number in range
     # This method will use by client to publish temp/humidity to broker
     def self.message
-      byebug
       temp = get_temparature
       humi = get_humidity
       msg = HomeTemp.new(
