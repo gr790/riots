@@ -52,6 +52,7 @@ gem 'mqtt'
 gem 'google-protobuf'
 gem 'statsd'
 gem 'redis'
+gem 'redis-time-series'
 gem 'byebug'
 
 

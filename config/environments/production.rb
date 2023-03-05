@@ -59,7 +59,7 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
   config.cache_store = :redis_cache_store, {
-        url: "redis://localhost:6379/0",
+        url: "redis://192.168.56.104:6379/0",
         connect_timeout:    30,  # Defaults to 20 seconds
         read_timeout:       1, # Defaults to 1 second
         write_timeout:      1, # Defaults to 1 second
