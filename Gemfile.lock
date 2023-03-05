@@ -75,7 +75,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    concurrent-ruby (1.2.0)
+    concurrent-ruby (1.2.2)
     connection_pool (2.3.0)
     crass (1.0.6)
     date (3.3.3)
@@ -87,7 +87,7 @@ GEM
     eventmachine (1.2.7)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    google-protobuf (3.21.12-x86_64-linux)
+    google-protobuf (3.22.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -111,10 +111,11 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    minitest (5.17.0)
+    mini_portile2 (2.8.1)
+    minitest (5.18.0)
     mongo (2.18.2)
       bson (>= 4.14.1, < 5.0.0)
-    mqtt (0.5.0)
+    mqtt (0.6.0)
     net-imap (0.3.4)
       date
       net-protocol
@@ -125,13 +126,14 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.14.1-x86_64-linux)
+    nokogiri (1.14.2)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.6.2)
+    rack (2.2.6.3)
     rack-test (2.0.2)
       rack (>= 1.3)
     rails (6.1.4)
@@ -163,14 +165,16 @@ GEM
     rake (13.0.6)
     redis (5.0.6)
       redis-client (>= 0.9.0)
-    redis-client (0.12.1)
+    redis-client (0.13.0)
       connection_pool
-    regexp_parser (2.6.2)
+    redis-time-series (0.8.0)
+      redis (>= 3.3)
+    regexp_parser (2.7.0)
     reline (0.3.2)
       io-console (~> 0.5)
     rexml (3.2.5)
     rubyzip (2.3.2)
-    selenium-webdriver (4.8.0)
+    selenium-webdriver (4.8.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -188,8 +192,8 @@ GEM
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.1)
-    timeout (0.3.1)
-    turbo-rails (1.3.3)
+    timeout (0.3.2)
+    turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -210,10 +214,10 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.6)
+    zeitwerk (2.6.7)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   byebug
@@ -226,6 +230,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (= 6.1.4)
   redis
+  redis-time-series
   selenium-webdriver
   statsd
   stimulus-rails
@@ -235,7 +240,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.0.5p211
+   ruby 2.7.7p221
 
 BUNDLED WITH
-   2.4.6
+   2.1.4

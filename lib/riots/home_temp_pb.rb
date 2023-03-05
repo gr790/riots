@@ -7,7 +7,7 @@ require 'byebug'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_file("riots/home_temp.proto", :syntax => :proto3) do
     add_message "riots.home_temp.HomeTemp" do
-      optional :temparature, :float, 1
+      optional :temperature, :float, 1
       optional :humidity, :float, 2
     end
   end
@@ -20,10 +20,10 @@ module Riots
     # This method will generate temparature and humidity using random number in range
     # This method will use by client to publish temp/humidity to broker
     def self.message
-      temp = get_temparature
+      temp = get_temperature
       humi = get_humidity
       msg = HomeTemp.new(
-              temparature: temp,
+              temperature: temp,
               humidity: humi
             )
       begin
@@ -35,7 +35,7 @@ module Riots
     end
 
     # Generate random temparature upto 120.00(Not Inclusive)
-    def self.get_temparature
+    def self.get_temperature
       rand(0.0..120.00).round(2)
     end
 
